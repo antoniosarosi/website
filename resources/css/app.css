@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --background-color: #23272e;
+    --text-color: #ABB2BF;
+    --menu-color: #1e2227;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Hero */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: url("/img/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px 100px;
+    color: #fff;
+    text-align: center;
+}
+
+.hero .hero-text {
+    padding-top: 120px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.hero h2 {
+    font-weight: 500;
+}
+
+.hero .social-networks-links {
+    font-size: 80px;
+}
+
+.hero .social-networks-links a {
+    text-decoration: none;
+    color: #fff;
+
+}
+
+/* Scroll down button */
+
+.scroll-down {
+    height: 100px;
+    width: 60px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.scroll-down::before, .scroll-down::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 20px;
+    width: 20px;
+    transform: translate(-50%, -100%) rotate(45deg);
+    border: 4px solid #fff;
+    border-top: transparent;
+    border-left: transparent;
+    animation: scroll-down 1s ease-in-out infinite;
+}
+
+.scroll-down::before {
+    top: 30%;
+    animation-delay: 0.3s;
+}
+
+@keyframes scroll-down {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
+}
+
+/* Navbar  */
+
+header {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    transition: 0.6s;
+}
+
+header.sticky {
+    background: var(--menu-color);
+    padding: 15px 100px;
+}
+
+header .brand {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .menu a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0 30px;
+    padding: 0 10px;
+    border-radius: 20px;
+    transition: 0.6s ease;
+    transition-property: background;
+}
+
+header .menu a:hover {
+    background: linear-gradient(90deg, rgb(54, 51, 245), rgb(127, 85, 206));
+}
+
+header .btn {
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Project section */
+
+.projects-section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px 100px;
+}
+
+.projects-section h2 {
+    color: var(--text-color);
+    font-size: 50px;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+.projects-section p {
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+.projects-section a {
+    text-decoration: none;
+    color: #61AFEF;
+}
+
+.projects-section h3 {
+    font-size: 24px;
+}
+
+.projects-section h4 {
+    font-size: 20px;
+}
+
+.projects-section .language {
+    color: #98C379;
+}
+
+/* Media queries */
+
+@media (max-width: 1420px) {
+    header .brand {
+        font-size: 25px;
+    }
+
+    header .menu a {
+        font-size: 18px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 1190px) {
+    .hero {
+        background-position: 80%;
+    }
+
+    header .btn {
+        display: block;
+    }
+
+    header .menu {
+        position: fixed;
+        background: var(--menu-color);
+        flex-direction: column;
+        min-width: 400px;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        padding: 80px 50px;
+        transition: 0.5s;
+        transition-property: right;
+    }
+
+    header .menu.active {
+        right: 0;
+    }
+
+    header .menu .close-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 25px;
+    }
+
+    header .menu a {
+        display: block;
+        font-size: 20px;
+        margin: 20px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero .social-networks-links {
+        font-size: 50px;
+    }
+
+    .scroll-down {
+        left: 45%;
+    }
+    
+    .scroll-down::before, .scroll-down::after {
+        left: 45%;
+    }
+}
+
+@media (max-width: 630px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    header.sticky {
+        padding: 15px 30px;
+    }
+
+    header .menu {
+        min-width: 340px;
+    }
+
+    .hero {
+        padding: 20px 30px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero .social-networks-links {
+        font-size: 40px;
+    }
+
+    .projects-section {
+        padding: 20px 30px;
+    }
+
+    .hero .hero-text {
+        padding-top: 80px;
+    }
+}
