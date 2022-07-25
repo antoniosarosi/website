@@ -13,6 +13,12 @@ Copy `.env.example` file to `.env`:
 cp .env.example .env
 ```
 
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
 Generate a personal access token [for your Github account](https://github.com/settings/tokens)
 and edit the `GITHUB_API_TOKEN` variable in the `.env` file. Then change the
 database credentials in the same file if they don't match your system and migrate:
